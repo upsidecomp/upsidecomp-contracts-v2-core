@@ -18,6 +18,7 @@
   "homepage": "https://github.com/upsidecomp/nfts#readme",
   "dependencies": {
     "@openzeppelin/cli": "^2.8.2",
-    "@openzeppelin/contracts": "^4.1.0"
+    "@openzeppelin/contracts": "^4.1.0",
+    "hardhat": "^2.2.1"
   }
 }
