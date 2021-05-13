@@ -18,7 +18,17 @@ contract Lottery {
         uint256 public lotteryId; /* ID of the lottery -- count */
     }
 
-    constructor() public { }
+    constructor(
+      uint256 _prizePeriodStart,
+      uint256 _prizePeriodSeconds,
+    ) public {
+        setPrizePeriodSeconds(10)
+    }
+
+    function setPrizePeriodSeconds(uint256 _prizePeriodSeconds) external {
+        require(_prizePeriodSeconds > 0, "Lottery/prize-period-greater-than-zero");
+        _prizePeriodSeconds = _prizePeriodSeconds;
+    }
 
     function start() public {
         require(State == State.CLOSED, "cant start a new lottery yet");
