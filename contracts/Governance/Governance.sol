@@ -4,7 +4,7 @@ contract Governance {
     uint256 public one_time;
     address public lottery;
     address public randomness;
-    
+
     constructor() public {
     }
 
