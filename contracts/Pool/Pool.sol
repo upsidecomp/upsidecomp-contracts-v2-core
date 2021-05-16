@@ -1,27 +1,64 @@
 pragma solidity 0.6.6;
 
+import "../ControlToken.sol"
+
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/SafeCastUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/introspection/ERC165CheckerUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol";
-import "@pooltogether/fixed-point/contracts/FixedPoint.sol";
+import "@openzeppelin/contracts-upgradeable/util/ReentrancyGuardUpgradeable.sol";
 
 
 contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
-    using SafeMathUpgradeable for uint256;
-    using SafeCastUpgradeable for uint256;
-    using SafeERC20Upgradeable for IERC20Upgradeable;
-    using MappedSinglyLinkedList for MappedSinglyLinkedList.Mapping;
-    using ERC165CheckerUpgradeable for address;
-
     event Initialized(
-        address reserveRegistry,
-        uint256 maxExitFeeMantissa,
-        uint256 maxTimelockDuration
+        address owner
     );
 
+    event Deposited(
+        address index from,
+        uint256 amount
+    );
 
+    event Withdrawn(
+    );
 
+    struct Mapping {
+        mapping(address => uint256) public balances;
+    };
+
+    ControlToken public controlToken;
+
+    function initialize (
+        address _owner,
+        ControlToken memory _control
+    )
+        public
+        initializer
+    {
+        require(msg.sender != address(0));
+        __Ownable_init();
+        __ReentrancyGuard_init();
+
+        _owner = _owner;
+        controlToken = _control
+
+        emit Initialized(msg.sender);
+    }
+
+    function deposit(uint256 amount) public payable {
+        require(msg.sender != _owner);
+
+        msg.sender.transfer(amount);
+
+        balances[msg.sender] += amount;
+
+        emit Deposited(msg.sender, to, amount)
+    }
+
+    function balance() public view returns (uint256) {
+        require(msg.sender != _owner)
+
+        return balance[msg.sender];
+    }
+
+    function owner() public view returns (address) {
+        return _owner;
+    }
 }
