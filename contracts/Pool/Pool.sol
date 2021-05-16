@@ -3,11 +3,11 @@ pragma solidity 0.6.6;
 import "../Token/Karma.sol"
 
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/util/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol";
 
 import "../utils/MappedSinglyLinkedList.sol";
-import "../Token/Karma.sol"
-
+import "../token/Karma.sol"
 
 contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     using MappedSinglyLinkedList for MappedSinglyLinkedList.Mapping;
@@ -17,8 +17,10 @@ contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     );
 
     event Deposited(
-        address index from,
-        uint256 amount
+        address indexed operator,
+        address indexed to,
+        address indexed token,
+        uint256 amount,
     );
 
     event Withdrawn(
@@ -29,6 +31,25 @@ contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     };
 
     Karma public karma;
+
+    function depositTo(
+        address to,
+        uint256 amount,
+        address controlledToken,
+    )
+        external override
+        onlyControlledToken(controlledToken)
+        canAddLiquidity(amount)
+        nonReentrant
+    {
+        address operator = _msgSender();
+
+        _mint(to, amount, controlledToken);
+
+        _token().safeTransferFrom(operator, address(this), amount);
+
+        emit Deposited(operator, to, controlledToken, amount);
+    }
 
     function initialize (
         KarmaInterface memory _karma
@@ -45,16 +66,6 @@ contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         emit Initialized(msg.sender);
     }
 
-    function deposit(uint256 amount) public payable {
-        require(msg.sender != _owner);
-
-        msg.sender.transfer(amount);
-
-        balances[msg.sender] += amount;
-
-        emit Deposited(msg.sender, to, amount)
-    }
-
     function balance() public view returns (uint256) {
         require(msg.sender != _owner)
 
@@ -64,4 +75,13 @@ contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     function owner() public view returns (address) {
         return _owner;
     }
+
+    function _mint(address to, uint256 amount, address controlledToken) internal {
+        // if (address(prizeStrategy) != address(0)) {
+        //   prizeStrategy.beforeTokenMint(to, amount, controlledToken, referrer);
+        // }
+        ControlledToken(controlledToken).controllerMint(to, amount);
+    }
+
+    function _token() internal virtual view returns (IERC20Upgradeable);
 }
