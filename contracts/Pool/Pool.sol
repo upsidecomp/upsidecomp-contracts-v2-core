@@ -1,14 +1,19 @@
 pragma solidity 0.6.6;
 
-import "../ControlToken.sol"
+import "../Token/Karma.sol"
 
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/util/ReentrancyGuardUpgradeable.sol";
 
+import "../utils/MappedSinglyLinkedList.sol";
+import "../Token/Karma.sol"
+
 
 contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
+    using MappedSinglyLinkedList for MappedSinglyLinkedList.Mapping;
+
     event Initialized(
-        address owner
+        address creator
     );
 
     event Deposited(
@@ -23,11 +28,10 @@ contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         mapping(address => uint256) public balances;
     };
 
-    ControlToken public controlToken;
+    Karma public karma;
 
     function initialize (
-        address _owner,
-        ControlToken memory _control
+        KarmaInterface memory _karma
     )
         public
         initializer
@@ -36,8 +40,7 @@ contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
         __Ownable_init();
         __ReentrancyGuard_init();
 
-        _owner = _owner;
-        controlToken = _control
+        karma = _karma;
 
         emit Initialized(msg.sender);
     }
