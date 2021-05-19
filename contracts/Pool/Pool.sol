@@ -9,6 +9,10 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol
 import "../utils/MappedSinglyLinkedList.sol";
 import "../token/Karma.sol"
 
+
+// @todo:
+// 1. Remove Karma & add ControlledToken -- includes Karma + Sponsor
+// 2. Hmm
 contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     using MappedSinglyLinkedList for MappedSinglyLinkedList.Mapping;
 
