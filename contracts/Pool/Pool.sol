@@ -13,6 +13,7 @@ import "../token/Karma.sol"
 // @todo:
 // 1. Remove Karma & add ControlledToken -- includes Karma + Sponsor
 // 2. Identify how ERC1155 enables ERC721
+// 3. Address can be DID? Can we switch addr?
 contract Pool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
     using MappedSinglyLinkedList for MappedSinglyLinkedList.Mapping;
 
