@@ -11,15 +11,16 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol
 // 3. Address can be DID? Can we switch addr?
 // 4. Functions: Deposit, Withdraw, Transfer.
 contract UpsideV1Pool is IUpsideV1Pair, UpsideV1ERC20 {
-    struct Mapping {
-        mapping(address => uint256) public balances;
+
+    address public factory;
+    address public owner;
+
+    constructor() public {
+        factory = msg.sender;
     }
 
-    mapping(address => Mapping) public ownable;
-
-    function createPool() public {
-        require(ownable[msg.sender] == address(0x0));
-
-        ownable[msg.sender] =
+    function intialize(address _owner) external {
+        require(msg.sender == factory, "UpsideV2: FORBIDDEN");
+        owner = _owner;
     }
 }
