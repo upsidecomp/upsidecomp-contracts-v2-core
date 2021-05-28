@@ -10,7 +10,7 @@ import "@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol
 // 2. Identify how ERC1155 enables ERC721
 // 3. Address can be DID? Can we switch addr?
 // 4. Functions: Deposit, Withdraw, Transfer.
-contract UpsidePool is OwnableUpgradeable, ReentrancyGuardUpgradeable {
+contract UpsideV1Pool is IUpsideV1Pair, UpsideV1ERC20 {
     struct Mapping {
         mapping(address => uint256) public balances;
     }

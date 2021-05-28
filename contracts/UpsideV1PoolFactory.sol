@@ -8,7 +8,7 @@ contract UpsideV1PoolFactory is IUpsideV1Factory {
     address public feeTo;
     address public feeToSetter;
 
-    mapping(address => mapping(address => uint)) public getPool;
+    mapping(address => address) public getPool;
     address[] public allPools;
 
     event PoolCreated(address indexed owner, address indexed token, address pool);
@@ -19,7 +19,7 @@ contract UpsideV1PoolFactory is IUpsideV1Factory {
 
     function createPool(address owner) external returns (address pool) {
         require(owner != address(0), "UpsideV1: ZERO_ADDRESS_OWNER");
-        require(getPair[owner] == address(0), "UpsideV1: OWNER_EXISTS");
+        require(getPool[owner] == address(0), "UpsideV1: OWNER_EXISTS");
 
         bytes memory bytecode = type(UpsideV1Pool).creationCode;
         bytes32 salt = keccak256(abi.encodePacked(owner));
@@ -28,11 +28,12 @@ contract UpsideV1PoolFactory is IUpsideV1Factory {
             pool := create2(0, add(bytecode, 32), mload(bytecode), salt)
         }
 
-        IUpsideV1Pool(pair).initialize(owner);
+        IUpsideV1Pool(pool).initialize(owner);
         getPool[owner] = pool;
-        allPairs.push(pool);
+        allPools.push(pool);
 
-        emit PoolCreated(owner, token, pool)
+        // todo: fix this with a token
+        emit PoolCreated(owner, pool, pool);
     }
 
     function setFeeTo(address _feeTo) external {
