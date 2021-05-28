@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "IUpsideV1Pool",
-  "sourceName": "contracts/interfaces/IUpsideV1Pool.sol",
+  "contractName": "IUniswapV3PoolImmutables",
+  "sourceName": "contracts/interfaces/pool/IUpsideV1PoolImmutables.sol",
   "abi": [
     {
       "inputs": [],

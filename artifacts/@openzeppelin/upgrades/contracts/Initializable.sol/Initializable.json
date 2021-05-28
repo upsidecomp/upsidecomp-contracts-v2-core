@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Initializable",
+  "sourceName": "@openzeppelin/upgrades/contracts/Initializable.sol",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603e80601d6000396000f3fe6080604052600080fdfea265627a7a7231582010585ba3ab746998d88a3bc074e8cc59292141211ae7bfaa4c14cf0f72062c7e64736f6c63430005100032",
+  "deployedBytecode": "0x6080604052600080fdfea265627a7a7231582010585ba3ab746998d88a3bc074e8cc59292141211ae7bfaa4c14cf0f72062c7e64736f6c63430005100032",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
