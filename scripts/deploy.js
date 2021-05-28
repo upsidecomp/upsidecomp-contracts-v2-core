@@ -1,25 +1,16 @@
 // scripts/deploy.js
-// const deployUpsideV1PoolFactory = async () => {
-//   console.log("UpsideV1PoolFactory: Initialize")
-//   const UpsideV1PoolFactory = await ethers.getContractFactory("UpsideV1PoolFactory");
-//   console.log("UpsideV1PoolFactory: Deploying")
-//   const upsideV1PoolFactory = await UpsideV1PoolFactory.deploy();
-//   await upsideV1PoolFactory.deployed();
-//   console.log("UpsideV1PoolFactory: Deployment Address --", upsideV1PoolFactory.address)
-// }
-
-const deployUpsideV1PoolDeployer = async () => {
-  console.log("UpsideV1PoolDeployer: Initialize")
-  const UpsideV1PoolDeployer = await ethers.getContractFactory("UpsideV1PoolDeployer");
-  console.log("UpsideV1PoolDeployer: Deploying")
-  const upsideV1PoolDeployer = await UpsideV1PoolDeployer.deploy();
-  await upsideV1PoolDeployer.deployed();
-  console.log("UpsideV1PoolFactory: Deployment Address --", upsideV1PoolDeployer.address)
+const deployUpsideV1Factory = async () => {
+  console.log("deployUpsideV1Factory: Initialize")
+  const UpsideV1Factory = await ethers.getContractFactory("UpsideV1Factory");
+  console.log("UpsideV1Factory: Deploying")
+  const upsideV1Factory = await UpsideV1Factory.deploy();
+  await upsideV1Factory.deployed();
+  console.log("UpsideV1Factory: Deployed -- at address: ", upsideV1Factory.address)
 }
 
 async function main() {
   // We get the contract to deploy
-  await deployUpsideV1PoolDeployer()
+  await deployUpsideV1Factory()
 }
 
 main()
