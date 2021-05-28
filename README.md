@@ -1,4 +1,6 @@
-# nfts
+# upside-v1-core
+
+This repository is for testing purposes. Created by [Jeevan Pillay](https://github.com/JeevanPillay) to learn gas optimization strategies, pool structures, etc in Solidity.
 
 
 # niftygateway
