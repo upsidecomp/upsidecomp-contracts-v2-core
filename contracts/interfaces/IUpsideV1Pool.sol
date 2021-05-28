@@ -1,7 +1,6 @@
-pragma solidity 0.6.6;
+pragma solidity =0.5.16;
 
 
-interface IUpsidePool {
-    function owner() external view returns (address);
-    function totalSupply() external view returns (uint);
+interface IUpsideV1Pool {
+    function initialize(address) external;
 }

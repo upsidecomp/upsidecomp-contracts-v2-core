@@ -391,42 +391,6 @@
         "Counters"
       ]
     },
-    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/Lottery.sol": {
-      "lastModificationDate": 1620811130637,
-      "contentHash": "2d05bcb50c9dfb1afc203917d44753d1",
-      "sourceName": "contracts/Lottery.sol",
-      "solcConfig": {
-        "version": "0.6.6",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@chainlink/contracts/src/v0.6/ChainlinkClient.sol"
-      ],
-      "versionPragmas": [
-        "^0.6.6"
-      ],
-      "artifacts": [
-        "Lottery"
-      ]
-    },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/node_modules/@chainlink/contracts/src/v0.6/ChainlinkClient.sol": {
       "lastModificationDate": 1620810641153,
       "contentHash": "d101d1c7b811fb524cfe3cdfa5341293",
@@ -743,6 +707,356 @@
       ],
       "artifacts": [
         "BufferChainlink"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IERC20.sol": {
+      "lastModificationDate": 1622184865090,
+      "contentHash": "d5378fb6c7419fcb9f10e1ac3ce1d001",
+      "sourceName": "contracts/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1ERC20.sol": {
+      "lastModificationDate": 1622184862968,
+      "contentHash": "9905bb040c93f7f1e519601cd9976b6f",
+      "sourceName": "contracts/interfaces/IUpsideV1ERC20.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "IUpsideV1ERC20"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1ERC20.sol": {
+      "lastModificationDate": 1622184883819,
+      "contentHash": "31ddc92df0d5c62734c746a2eeb5d388",
+      "sourceName": "contracts/UpsideV1ERC20.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IUpsideV1ERC20.sol",
+        "./libraries/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "UpsideV1ERC20"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/libraries/SafeMath.sol": {
+      "lastModificationDate": 1622184847490,
+      "contentHash": "a65356c329efeffba75210664f5df3cd",
+      "sourceName": "contracts/libraries/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1Pool.sol": {
+      "lastModificationDate": 1622185275410,
+      "contentHash": "bc7dc5c1c111cb9b89098bdb1ce394ac",
+      "sourceName": "contracts/UpsideV1Pool.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IUpsideV1Pool.sol",
+        "./UpsideV1ERC20.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "UpsideV1Pool"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1Pool.sol": {
+      "lastModificationDate": 1622185306091,
+      "contentHash": "cd73d7a627af4f24fe196e38e98cf463",
+      "sourceName": "contracts/interfaces/IUpsideV1Pool.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "IUpsideV1Pool"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1PoolFactory.sol": {
+      "lastModificationDate": 1622185243768,
+      "contentHash": "074e2251b4133864a968b350054120e3",
+      "sourceName": "contracts/UpsideV1PoolFactory.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IUpsideV1Factory.sol",
+        "./interfaces/IUpsideV1Pool.sol",
+        "./UpsideV1Pool.sol"
+      ],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "UpsideV1PoolFactory"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1Factory.sol": {
+      "lastModificationDate": 1622184859306,
+      "contentHash": "2946e935ee5438df4832f478ce40d59b",
+      "sourceName": "contracts/interfaces/IUpsideV1Factory.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "IUpsideV1Factory"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/libraries/Math.sol": {
+      "lastModificationDate": 1622184850968,
+      "contentHash": "bee6c1959728d5d42c14151076cebd83",
+      "sourceName": "contracts/libraries/Math.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "Math"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/libraries/UQ112x112.sol": {
+      "lastModificationDate": 1622184843824,
+      "contentHash": "2a703244e9f645c6fb297a983ce7c9c4",
+      "sourceName": "contracts/libraries/UQ112x112.sol",
+      "solcConfig": {
+        "version": "0.5.16",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "=0.5.16"
+      ],
+      "artifacts": [
+        "UQ112x112"
       ]
     }
   }

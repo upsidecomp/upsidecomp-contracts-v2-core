@@ -3,13 +3,15 @@ pragma solidity =0.5.16;
 import './interfaces/IUpsideV1ERC20.sol';
 import './libraries/SafeMath.sol';
 
-contract UpsideV2ERC20 is IUpsideV2ERC20 {
+
+contract UpsideV1ERC20 is IUpsideV1ERC20 {
     using SafeMath for uint;
 
     string public constant name = 'Upside V1';
     string public constant symbol = 'UP-V1';
     uint8 public constant decimals = 18;
     uint  public totalSupply;
+
     mapping(address => uint) public balanceOf;
     mapping(address => mapping(address => uint)) public allowance;
 

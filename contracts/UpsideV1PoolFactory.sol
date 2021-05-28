@@ -1,6 +1,7 @@
-pragma solidity 0.6.6;
+pragma solidity =0.5.16;
 
 import "./interfaces/IUpsideV1Factory.sol";
+import "./interfaces/IUpsideV1Pool.sol";
 import "./UpsideV1Pool.sol";
 
 
