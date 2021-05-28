@@ -920,6 +920,78 @@
       "artifacts": [
         "UpsideV1PoolDeployer"
       ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1Factory.sol": {
+      "lastModificationDate": 1622243733188,
+      "contentHash": "71c220063acd5015e98d7aff1ae2890c",
+      "sourceName": "contracts/interfaces/IUpsideV1Factory.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IUpsideV1Factory"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1Factory.sol": {
+      "lastModificationDate": 1622243483948,
+      "contentHash": "1ed2c8b685a9d14f60a456db3ccdf1df",
+      "sourceName": "contracts/UpsideV1Factory.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IUpsideV1Factory.sol",
+        "./UpsideV1PoolDeployer.sol",
+        "./UpsideV1Pool.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "UpsideV1Factory"
+      ]
     }
   }
 }
