@@ -22,10 +22,10 @@
   },
   "scripts": {
     "test": "hardhat test",
-    "compile": "npx hardhat compile",
-    "start": "npx hardhat node",
-    "deploy": "npx hardhat run --network localhost scripts/deploy.ts",
-    "console": "npx hardhat console --network localhost",
+    "compile": "hardhat compile",
+    "start": "hardhat node",
+    "deploy": "hardhat run --network localhost scripts/deploy.ts",
+    "console": "hardhat console --network localhost",
     "format": "prettier --write 'contracts/**/*.sol'"
   },
   "dependencies": {},
@@ -33,11 +33,12 @@
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-etherscan": "^2.1.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
-    "@openzeppelin/cli": "^2.8.2",
-    "@openzeppelin/contracts": "^4.1.0",
     "@typechain/ethers-v5": "^7.0.0",
     "@typechain/hardhat": "^2.0.1",
-    "typechain": "^5.0.0",
+    "@types/chai": "^4.2.18",
+    "@types/mocha": "^8.2.2",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.3.0",
     "ethers": "^5.2.0",
     "hardhat": "^2.2.1",
     "install": "^0.13.0",
@@ -50,6 +51,7 @@
     "solhint-plugin-prettier": "^0.0.5",
     "ts-generator": "^0.1.1",
     "ts-node": "^10.0.0",
+    "typechain": "^5.0.0",
     "typescript": "^4.3.2"
   },
   "files": [
