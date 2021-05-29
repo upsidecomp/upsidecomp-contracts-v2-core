@@ -1,2 +1,0 @@
-const UpsideV1Factory = await ethers.getContractFactory("UpsideV1Factory");
-await upsideV1Factory.createPool()
