@@ -1,5 +1,5 @@
 {
-  "name": "upsidecomp-v1-contracts",
+  "name": "upsidecomp-core-v1",
   "author": "Upside Technologies Pty. Ltd.",
   "version": "1.0.0",
   "description": "core smart contracts of upsidecomp",
@@ -15,10 +15,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/upsidecomp/upsidecomp-v1-contracts.git"
+    "url": "git+https://github.com/upsidecomp/upsidecomp-core-v1.git"
   },
   "bugs": {
-    "url": "https://github.com/upsidecomp/upsidecomp-v1-contracts/issues"
+    "url": "https://github.com/upsidecomp/upsidecomp-core-v1/issues"
   },
   "scripts": {
     "test": "hardhat test",
