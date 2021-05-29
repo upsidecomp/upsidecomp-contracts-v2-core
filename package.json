@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "npx hardhat compile",
     "start": "npx hardhat node",
-    "deploy": "npx hardhat run --network localhost scripts/deploy.js"
+    "deploy": "npx hardhat run --network localhost scripts/deploy.js",
+    "console": "npx hardhat console --network localhost",
+    "format": "prettier --write 'contracts/**/*.sol'"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "ethers": "^5.1.4",
     "hardhat": "^2.2.1",
     "install": "^0.13.0",
-    "npm": "^7.15.0"
+    "npm": "^7.15.0",
+    "prettier-plugin-solidity": "^1.0.0-beta.11"
   }
 }

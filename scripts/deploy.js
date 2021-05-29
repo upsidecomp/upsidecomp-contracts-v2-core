@@ -1,29 +1,41 @@
 // scripts/deploy.js
-const deployLottery = async () => {
-  const Lottery = await ethers.getContractFactory("Lottery");
-  console.log("Deploying Lottery...");
-  const lottery = await Lottery.deploy();
-  await lottery.deployed();
-  console.log("Lottery deployed to:", lottery.address);
-}
 
-const deployUpsideV1PoolFactory = async () => {
-  console.log("UpsideV1PoolFactory: Initialize")
-  const UpsideV1PoolFactory = await ethers.getContractFactory("UpsideV1PoolFactory");
-  console.log("UpsideV1PoolFactory: Deploying")
-  const upsideV1PoolFactory = await UpsideV1PoolFactory.deploy();
-  await upsideV1PoolFactory.deployed();
-  console.log("UpsideV1PoolFactory: Deployment Address --", upsideV1PoolFactory.address)
-}
+const createPool = async (_instanceUpsideV1Factory, _owner, _fee) => {
+  const owner = _owner;
+  const fee = _fee;
+  const instanceUpsideV1Factory = _instanceUpsideV1Factory;
+
+  console.log("UpsideV1Factory: Creating Pool -- with owner: ", owner);
+  await instanceUpsideV1Factory.createPool(owner, fee);
+  const pool = await instanceUpsideV1Factory.getPool(owner);
+  console.log("UpsideV1Pool: Created -- at address: ", pool);
+  return pool;
+};
 
 async function main() {
-  // We get the contract to deploy
-  await deployUpsideV1PoolFactory()
+  console.log("deployUpsideV1Factory: Initialize");
+  const UpsideV1Factory = await ethers.getContractFactory("UpsideV1Factory");
+  console.log("UpsideV1Factory: Deploying");
+  const upsideV1Factory = await UpsideV1Factory.deploy();
+  await upsideV1Factory.deployed();
+  console.log(
+    "UpsideV1Factory: Deployed -- at address: ",
+    upsideV1Factory.address
+  );
+
+  const instanceUpsideV1Factory = await UpsideV1Factory.attach(
+    upsideV1Factory.address
+  );
+
+  const accounts = await ethers.provider.listAccounts();
+  const fee = 10;
+
+  await createPool(instanceUpsideV1Factory, accounts[0], fee);
 }
 
 main()
   .then(() => process.exit(0))
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
     process.exit(1);
   });

@@ -710,8 +710,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1Pool.sol": {
-      "lastModificationDate": 1622187986012,
-      "contentHash": "fab5140d3fc7391ec69b91e79450891a",
+      "lastModificationDate": 1622245447271,
+      "contentHash": "24b3b15fbcd68aea567827904baa230a",
       "sourceName": "contracts/UpsideV1Pool.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -747,8 +747,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1Pool.sol": {
-      "lastModificationDate": 1622188133770,
-      "contentHash": "d0025f72be4a0f9ebf055c71ac2ad03e",
+      "lastModificationDate": 1622245446569,
+      "contentHash": "a010f4b990b85c990ad5e3a9c6e44960",
       "sourceName": "contracts/interfaces/IUpsideV1Pool.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -817,8 +817,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/pool/IUpsideV1PoolImmutables.sol": {
-      "lastModificationDate": 1622188062691,
-      "contentHash": "e0b6938a647fcb77f156b59b4595d9d4",
+      "lastModificationDate": 1622245446761,
+      "contentHash": "36c993b4b73fe39743cb4e5c15eb2a14",
       "sourceName": "contracts/interfaces/pool/IUpsideV1PoolImmutables.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -851,8 +851,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1PoolDeployer.sol": {
-      "lastModificationDate": 1622188194040,
-      "contentHash": "4f675475f7e67c5e9633b7bceeb4bade",
+      "lastModificationDate": 1622246600090,
+      "contentHash": "5dad4ff81b9490318abe2e9544f372f1",
       "sourceName": "contracts/interfaces/IUpsideV1PoolDeployer.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -885,8 +885,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1PoolDeployer.sol": {
-      "lastModificationDate": 1622188181472,
-      "contentHash": "fe15789f261eda238c418b39dccbada8",
+      "lastModificationDate": 1622245447388,
+      "contentHash": "5ff9ee599e2d0bbcea6910a5fe38b11d",
       "sourceName": "contracts/UpsideV1PoolDeployer.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -919,6 +919,78 @@
       ],
       "artifacts": [
         "UpsideV1PoolDeployer"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1Factory.sol": {
+      "lastModificationDate": 1622245446512,
+      "contentHash": "c299bf9deff147857203ab2079a1792e",
+      "sourceName": "contracts/interfaces/IUpsideV1Factory.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IUpsideV1Factory"
+      ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1Factory.sol": {
+      "lastModificationDate": 1622245447220,
+      "contentHash": "c11a08903c18fdbc7e6c707bf92c6504",
+      "sourceName": "contracts/UpsideV1Factory.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./interfaces/IUpsideV1Factory.sol",
+        "./UpsideV1PoolDeployer.sol",
+        "./UpsideV1Pool.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "UpsideV1Factory"
       ]
     }
   }
