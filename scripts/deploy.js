@@ -7,9 +7,14 @@ const createPool = async (_instanceUpsideV1Factory, _owner, _fee) => {
 
   console.log("UpsideV1Factory: Creating Pool -- with owner: ", owner);
   await instanceUpsideV1Factory.createPool(owner, fee);
-  const pool = await instanceUpsideV1Factory.getPool(owner);
-  console.log("UpsideV1Pool: Created -- at address: ", pool);
-  return pool;
+  const poolAddress = await instanceUpsideV1Factory.getPool(owner);
+  console.log("UpsideV1Pool: Created -- at address: ", poolAddress);
+
+  const UpsideV1Pool = await ethers.getContractFactory("UpsideV1Pool");
+  const instanceUpsideV1Pool = await UpsideV1Pool.attach(poolAddress);
+  console.log("Owner: ", await instanceUpsideV1Pool.owner());
+  console.log("Factory: ", await instanceUpsideV1Pool.factory());
+  console.log("Fee: ", await instanceUpsideV1Pool.fee());
 };
 
 async function main() {

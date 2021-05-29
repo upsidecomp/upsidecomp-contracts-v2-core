@@ -885,8 +885,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1PoolDeployer.sol": {
-      "lastModificationDate": 1622245447388,
-      "contentHash": "5ff9ee599e2d0bbcea6910a5fe38b11d",
+      "lastModificationDate": 1622249561816,
+      "contentHash": "249ac4cb26239200cc68362c80e3c25a",
       "sourceName": "contracts/UpsideV1PoolDeployer.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -956,7 +956,7 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1Factory.sol": {
-      "lastModificationDate": 1622245447220,
+      "lastModificationDate": 1622248261508,
       "contentHash": "c11a08903c18fdbc7e6c707bf92c6504",
       "sourceName": "contracts/UpsideV1Factory.sol",
       "solcConfig": {

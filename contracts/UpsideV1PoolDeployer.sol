@@ -8,8 +8,8 @@ import "./UpsideV1Pool.sol";
 
 contract UpsideV1PoolDeployer is IUpsideV1PoolDeployer {
     struct Parameters {
-        address owner;
         address factory;
+        address owner;
         uint24 fee;
     }
 
