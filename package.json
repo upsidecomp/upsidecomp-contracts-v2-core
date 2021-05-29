@@ -1,35 +1,59 @@
 {
-  "name": "nfts",
+  "name": "upsidecomp-v1-contracts",
+  "author": "upsidecomp",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Core smart contracts of Upside V1",
+  "license": "BUSL-1.1",
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://upsidecomp.com",
+  "keywords": [
+    "upsidecomp",
+    "core",
+    "v1"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upsidecomp/upsidecomp-v1-contracts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/upsidecomp/upsidecomp-v1-contracts/issues"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "hardhat test",
     "compile": "npx hardhat compile",
     "start": "npx hardhat node",
     "deploy": "npx hardhat run --network localhost scripts/deploy.js",
     "console": "npx hardhat console --network localhost",
     "format": "prettier --write 'contracts/**/*.sol'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/upsidecomp/nfts.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/upsidecomp/nfts/issues"
-  },
-  "homepage": "https://github.com/upsidecomp/nfts#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@chainlink/contracts": "^0.1.7",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@openzeppelin/cli": "^2.8.2",
     "@openzeppelin/contracts": "^4.1.0",
-    "ethers": "^5.1.4",
+    "ethers": "^5.2.0",
     "hardhat": "^2.2.1",
     "install": "^0.13.0",
+    "mocha": "^8.4.0",
+    "mocha-chai-jest-snapshot": "^1.1.2",
     "npm": "^7.15.0",
-    "prettier-plugin-solidity": "^1.0.0-beta.11"
-  }
+    "prettier": "^2.3.0",
+    "prettier-plugin-solidity": "^1.0.0-beta.11",
+    "solhint": "^3.3.5",
+    "solhint-plugin-prettier": "^0.0.5",
+    "ts-generator": "^0.1.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  },
+  "files": [
+    "contracts/interfaces",
+    "contracts/libraries",
+    "artifacts/contracts/UpsideV1Factory.sol/UpsideV1Factory.json",
+    "artifacts/contracts/UpsideV1Pool.sol/UpsideV1Pool.json",
+    "artifacts/contracts/interfaces/**/*.json",
+    "!artifacts/contracts/interfaces/**/*.dbg.json"
+  ]
 }
