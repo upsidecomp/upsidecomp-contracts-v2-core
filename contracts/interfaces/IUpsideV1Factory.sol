@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity >=0.5.0;
 
-
 /// @title The interface for the Upside V1 Factory
 /// @notice The Upside V1 Factory facilitates creation of Uniswap V3 pools and control over the protocol fees
 interface IUpsideV1Factory {
@@ -14,11 +13,7 @@ interface IUpsideV1Factory {
     /// @param owner The second token of the pool by address sort order
     /// @param fee The fee collected upon every swap in the pool, denominated in hundredths of a bip
     /// @param pool The address of the created pool
-    event PoolCreated(
-        address indexed owner,
-        uint24 indexed fee,
-        address pool
-    );
+    event PoolCreated(address indexed owner, uint24 indexed fee, address pool);
 
     /// @notice Returns the current owner of the factory
     /// @dev Can be changed by the current owner via setOwner
@@ -29,9 +24,7 @@ interface IUpsideV1Factory {
     /// @dev tokenA and tokenB may be passed in either token0/token1 or token1/token0 order
     /// @param _owner The contract address of the other token
     /// @return pool The pool address
-    function getPool(
-        address _owner
-    ) external view returns (address pool);
+    function getPool(address _owner) external view returns (address pool);
 
     /// @notice Creates a pool for the given two tokens and fee
     /// @param _owner The other of the two tokens in the desired pool
@@ -40,10 +33,9 @@ interface IUpsideV1Factory {
     /// from the fee. The call will revert if the pool already exists, the fee is invalid, or the token arguments
     /// are invalid.
     /// @return pool The address of the newly created pool
-    function createPool(
-        address _owner,
-        uint24 _fee
-    ) external returns (address pool);
+    function createPool(address _owner, uint24 _fee)
+        external
+        returns (address pool);
 
     /// @notice Updates the owner of the factory
     /// @dev Must be called by the current owner

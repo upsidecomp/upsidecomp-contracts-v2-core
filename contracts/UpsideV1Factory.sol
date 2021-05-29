@@ -7,7 +7,6 @@ import "./UpsideV1PoolDeployer.sol";
 
 import "./UpsideV1Pool.sol";
 
-
 /// @title Canonical Uniswap V3 factory
 /// @notice Deploys Uniswap V3 pools and manages ownership and control over pool protocol fees
 contract UpsideV1Factory is IUpsideV1Factory, UpsideV1PoolDeployer {
@@ -23,10 +22,11 @@ contract UpsideV1Factory is IUpsideV1Factory, UpsideV1PoolDeployer {
     }
 
     /// @inheritdoc IUpsideV1Factory
-    function createPool(
-        address _owner,
-        uint24 _fee
-    ) external override returns (address pool) {
+    function createPool(address _owner, uint24 _fee)
+        external
+        override
+        returns (address pool)
+    {
         require(_owner != address(0), "UpsideV1: ZERO_ADDRESS");
         require(getPool[_owner] == address(0));
 
