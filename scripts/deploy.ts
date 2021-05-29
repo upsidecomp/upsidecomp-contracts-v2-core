@@ -1,6 +1,11 @@
 // scripts/deploy.js
+import { ethers } from "hardhat";
 
-const createPool = async (_instanceUpsideV1Factory, _owner, _fee) => {
+const createPool = async (
+  _instanceUpsideV1Factory: any,
+  _owner: any,
+  _fee: any
+) => {
   const owner = _owner;
   const fee = _fee;
   const instanceUpsideV1Factory = _instanceUpsideV1Factory;
@@ -12,9 +17,18 @@ const createPool = async (_instanceUpsideV1Factory, _owner, _fee) => {
 
   const UpsideV1Pool = await ethers.getContractFactory("UpsideV1Pool");
   const instanceUpsideV1Pool = await UpsideV1Pool.attach(poolAddress);
-  console.log("Owner: ", await instanceUpsideV1Pool.owner());
-  console.log("Factory: ", await instanceUpsideV1Pool.factory());
-  console.log("Fee: ", await instanceUpsideV1Pool.fee());
+  console.log(
+    "UpsideV1Pool: Owner -- at address: ",
+    await instanceUpsideV1Pool.owner()
+  );
+  console.log(
+    "UpsideV1Pool: Factory -- at address: ",
+    await instanceUpsideV1Pool.factory()
+  );
+  console.log(
+    "UpsideV1Pool: Fee -- at address: ",
+    await instanceUpsideV1Pool.fee()
+  );
 };
 
 async function main() {

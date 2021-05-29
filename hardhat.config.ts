@@ -1,4 +1,4 @@
-import "hardhat-typechain";
+import "@typechain/hardhat";
 import "@nomiclabs/hardhat-ethers";
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-etherscan";
@@ -22,6 +22,9 @@ export default {
     },
     kovan: {
       url: `https://kovan.infura.io/v3/${process.env.INFURA_API_KEY}`,
+    },
+    localhost: {
+      url: `http://localhost:8545/`,
     },
   },
   etherscan: {
