@@ -6,8 +6,8 @@ pragma solidity ^0.8.0;
 // import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
 // import "@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol";
 
-import "./interfaces/IUpsideV1Pool.sol";
-import "./interfaces/IUpsideV1PoolDeployer.sol";
+import './interfaces/IUpsideV1Pool.sol';
+import './interfaces/IUpsideV1PoolDeployer.sol';
 
 // @todo:
 // 1. Remove Karma & add ControlledToken -- includes Karma + Sponsor

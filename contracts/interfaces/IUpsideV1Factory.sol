@@ -33,9 +33,7 @@ interface IUpsideV1Factory {
     /// from the fee. The call will revert if the pool already exists, the fee is invalid, or the token arguments
     /// are invalid.
     /// @return pool The address of the newly created pool
-    function createPool(address _owner, uint24 _fee)
-        external
-        returns (address pool);
+    function createPool(address _owner, uint24 _fee) external returns (address pool);
 
     /// @notice Updates the owner of the factory
     /// @dev Must be called by the current owner
