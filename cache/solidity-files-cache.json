@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1Factory.sol": {
-      "lastModificationDate": 1622251135219,
-      "contentHash": "8e5d04b3f271bc2c00ff8e6f0190b31a",
+      "lastModificationDate": 1622265974094,
+      "contentHash": "8878bff2927b8293d4057686ebf5e813",
       "sourceName": "contracts/interfaces/IUpsideV1Factory.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -39,8 +39,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1Factory.sol": {
-      "lastModificationDate": 1622248261508,
-      "contentHash": "c11a08903c18fdbc7e6c707bf92c6504",
+      "lastModificationDate": 1622265955733,
+      "contentHash": "67fb6fe314f9395d5c5e605d2167470b",
       "sourceName": "contracts/UpsideV1Factory.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -80,8 +80,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1PoolDeployer.sol": {
-      "lastModificationDate": 1622251126012,
-      "contentHash": "249ac4cb26239200cc68362c80e3c25a",
+      "lastModificationDate": 1622265952516,
+      "contentHash": "004a9ebb5f8d619163155733b398ac1b",
       "sourceName": "contracts/UpsideV1PoolDeployer.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -120,8 +120,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/UpsideV1Pool.sol": {
-      "lastModificationDate": 1622248261508,
-      "contentHash": "24b3b15fbcd68aea567827904baa230a",
+      "lastModificationDate": 1622284610820,
+      "contentHash": "9f159035cd33b8c979d07236be5a920e",
       "sourceName": "contracts/UpsideV1Pool.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -160,7 +160,7 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1PoolDeployer.sol": {
-      "lastModificationDate": 1622248261512,
+      "lastModificationDate": 1622265970127,
       "contentHash": "5dad4ff81b9490318abe2e9544f372f1",
       "sourceName": "contracts/interfaces/IUpsideV1PoolDeployer.sol",
       "solcConfig": {
@@ -197,8 +197,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/IUpsideV1Pool.sol": {
-      "lastModificationDate": 1622248261511,
-      "contentHash": "a010f4b990b85c990ad5e3a9c6e44960",
+      "lastModificationDate": 1622266046429,
+      "contentHash": "4e7f037b67608d9691f36c42e4f7d56a",
       "sourceName": "contracts/interfaces/IUpsideV1Pool.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -236,8 +236,8 @@
       ]
     },
     "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/pool/IUpsideV1PoolImmutables.sol": {
-      "lastModificationDate": 1622251138025,
-      "contentHash": "fbd69f266f5cff6617f316df7567897f",
+      "lastModificationDate": 1622284593514,
+      "contentHash": "55b3f5eb5770d28231d9d85d32bf86e8",
       "sourceName": "contracts/interfaces/pool/IUpsideV1PoolImmutables.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -269,8 +269,41 @@
         ">=0.5.0"
       ],
       "artifacts": [
-        "IUniswapV3PoolImmutables"
+        "IUpsideV1PoolImmutables"
       ]
+    },
+    "/Users/jpil8/Developer/Repo/upsidecomp/nfts/contracts/interfaces/token/ControlledToken.sol": {
+      "lastModificationDate": 1622284168206,
+      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
+      "sourceName": "contracts/interfaces/token/ControlledToken.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 800
+          },
+          "metadata": {
+            "bytecodeHash": "none"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [],
+      "artifacts": []
     }
   }
 }
