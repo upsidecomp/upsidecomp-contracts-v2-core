@@ -2,7 +2,7 @@
   "name": "upsidecomp-v1-contracts",
   "author": "Upside Technologies Pty. Ltd.",
   "version": "1.0.0",
-  "description": "Core smart contracts of Upside V1",
+  "description": "core smart contracts of upsidecomp",
   "license": "BUSL-1.1",
   "publishConfig": {
     "access": "public"

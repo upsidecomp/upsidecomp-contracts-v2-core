@@ -7,15 +7,11 @@ export enum FeeAmount {
 }
 
 export function getCreate2Address(
-  _factoryAddress: string,
-  _owner: string,
-  _fee: number,
+  factoryAddress: string,
+  owner: string,
+  fee: number,
   bytecode: string
 ): string {
-  const owner = _owner.toLowerCase();
-  const fee = _fee;
-  const factoryAddress = _factoryAddress;
-
   const constructorArgumentsEncoded = utils.defaultAbiCoder.encode(
     ["address", "uint24"],
     [owner, fee]
