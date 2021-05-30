@@ -20,6 +20,9 @@
   "bugs": {
     "url": "https://github.com/upsidecomp/upsidecomp-core-v1/issues"
   },
+  "contributors": [
+    "Jeevan Pillay <jeevan@upsidecomp.com>"
+  ],
   "scripts": {
     "test": "hardhat test",
     "compile": "hardhat compile",
