@@ -14,8 +14,8 @@
 
 pragma solidity ^0.8.0;
 
-import './LogExpMath.sol';
-import '../helpers/UpsideErrors.sol';
+import "./LogExpMath.sol";
+import "../helpers/UpsideErrors.sol";
 
 /* solhint-disable private-vars-leading-underscore */
 

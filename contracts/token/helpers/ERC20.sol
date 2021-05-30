@@ -2,10 +2,10 @@
 
 pragma solidity ^0.8.0;
 
-import '../../helpers/UpsideErrors.sol';
+import "../../helpers/UpsideErrors.sol";
 
-import '../../interfaces/token/IERC20.sol';
-import '../../libraries/SafeMath.sol';
+import "../../interfaces/token/IERC20.sol";
+import "../../libraries/SafeMath.sol";
 
 /**
  * @dev Implementation of the {IERC20} interface.

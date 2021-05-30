@@ -14,7 +14,7 @@
 
 pragma solidity ^0.8.0;
 
-import '../helpers/UpsideErrors.sol';
+import "../helpers/UpsideErrors.sol";
 
 /* solhint-disable */
 

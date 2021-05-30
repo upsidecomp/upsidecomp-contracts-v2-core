@@ -45,7 +45,7 @@ abstract contract EIP712 {
     constructor(string memory name, string memory version) {
         _HASHED_NAME = keccak256(bytes(name));
         _HASHED_VERSION = keccak256(bytes(version));
-        _TYPE_HASH = keccak256('EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)');
+        _TYPE_HASH = keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)");
     }
 
     /**
@@ -71,7 +71,7 @@ abstract contract EIP712 {
      * ```
      */
     function _hashTypedDataV4(bytes32 structHash) internal view virtual returns (bytes32) {
-        return keccak256(abi.encodePacked('\x19\x01', _domainSeparatorV4(), structHash));
+        return keccak256(abi.encodePacked("\x19\x01", _domainSeparatorV4(), structHash));
     }
 
     function _getChainId() private view returns (uint256 chainId) {

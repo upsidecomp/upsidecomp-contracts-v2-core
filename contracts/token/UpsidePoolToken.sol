@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 pragma solidity ^0.8.0;
 
-import '../interfaces/token/IERC20.sol';
-import '../interfaces/token/IERC20Permit.sol';
-import './helpers/EIP712.sol';
-import '../libraries/Math.sol';
+import "../interfaces/token/IERC20.sol";
+import "../interfaces/token/IERC20Permit.sol";
+import "./helpers/EIP712.sol";
+import "../libraries/Math.sol";
 
 /**
  * @title Highly opinionated token implementation
@@ -38,11 +38,11 @@ contract UpsidePoolToken is IERC20, IERC20Permit, EIP712 {
 
     // solhint-disable-next-line var-name-mixedcase
     bytes32 private immutable _PERMIT_TYPE_HASH =
-        keccak256('Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)');
+        keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
 
     // Function declarations
 
-    constructor(string memory tokenName, string memory tokenSymbol) EIP712(tokenName, '1') {
+    constructor(string memory tokenName, string memory tokenSymbol) EIP712(tokenName, "1") {
         _name = tokenName;
         _symbol = tokenSymbol;
     }
