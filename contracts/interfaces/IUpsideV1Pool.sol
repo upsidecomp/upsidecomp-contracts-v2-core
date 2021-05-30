@@ -2,6 +2,6 @@
 
 pragma solidity >=0.5.0;
 
-import "./pool/IUpsideV1PoolImmutables.sol";
+import './IUpsideV1PoolImmutables.sol';
 
 interface IUpsideV1Pool is IUpsideV1PoolImmutables {}
