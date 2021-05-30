@@ -13,22 +13,28 @@ import '../helpers/UpsideErrors.sol';
 
 // todo: implement IVault to main the pools
 // todo: implement AssetManager to access fee
-abstract contract BasePool is IBasePool {
+// todo: implement Authroization
+abstract contract BasePool is IBasePool, UpsidePoolToken {
     using FixedPoint for uint256;
 
     uint256 private constant _MIN_FEE_PERCENTAGE = 1e12; // 0.0001%
     uint256 private constant _MAX_FEE_PERCENTAGE = 1e17; // 10%
 
-    address public immutable override factory;
     uint256 public override feePercentage;
 
     mapping(bytes32 => mapping(address => uint256)) public balances;
     mapping(address => bytes32) private _poolIds;
 
     event PoolRegistered(bytes32 indexed poolId, address indexed owner);
+    event FeePercentageUpdated(uint256 feePercentage);
 
-    constructor() {
-        (factory, feePercentage) = IBasePoolDeployer(msg.sender).parameters();
+    constructor(
+        address owner,
+        uint256 feePercentage,
+        string memory name,
+        string memory symbol
+    ) UpsidePoolToken(name, symbol) {
+        _setFeePercentage(feePercentage);
     }
 
     function registerOwner(address owner) external override returns (bytes32) {
@@ -42,13 +48,24 @@ abstract contract BasePool is IBasePool {
         return poolId;
     }
 
-    function _toPoodId(address owner) internal pure returns (bytes32) {
+    function _toPoodId(address _owner) internal pure returns (bytes32) {
         bytes32 serialized;
 
-        serialized |= bytes32(keccak256(abi.encode(owner))) << (10 * 8);
+        serialized |= bytes32(keccak256(abi.encode(_owner))) << (10 * 8);
 
         return serialized;
     }
 
-    function setFeeProtocol(uint256 feePercentage) external override {}
+    function setFeePercentage(uint256 _feePercentage) external override {
+        _setFeePercentage(_feePercentage);
+    }
+
+    function _setFeePercentage(uint256 _feePercentage) internal {
+        require(_feePercentage >= _MIN_FEE_PERCENTAGE);
+        require(_feePercentage <= _MAX_FEE_PERCENTAGE);
+
+        feePercentage = _feePercentage;
+
+        emit FeePercentageUpdated(_feePercentage);
+    }
 }

@@ -11,4 +11,11 @@ import './interfaces/IUpsideV1PoolDeployer.sol';
 
 import './core/BasePool.sol';
 
-contract UpsideV1Pool is BasePool {}
+contract UpsideV1Pool is BasePool {
+    constructor(
+        address owner,
+        uint256 feePercentage,
+        string memory name,
+        string memory symbol
+    ) BasePool(owner, feePercentage, name, symbol) {}
+}

@@ -2,7 +2,7 @@
 pragma solidity >=0.5.0;
 
 interface IBasePoolOwnerActions {
-    function setFeeProtocol(uint256 feePercentage) external;
+    function setFeePercentage(uint256 feePercentage) external;
 
     function registerOwner(address owner) external returns (bytes32);
 }
