@@ -9,6 +9,6 @@ pragma solidity ^0.8.0;
 import './interfaces/IUpsideV1Pool.sol';
 import './interfaces/IUpsideV1PoolDeployer.sol';
 
-import './pool/BasePool.sol';
+import './core/BasePool.sol';
 
 contract UpsideV1Pool is BasePool {}
