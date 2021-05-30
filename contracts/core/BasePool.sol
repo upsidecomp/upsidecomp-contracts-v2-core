@@ -8,12 +8,13 @@ import '../token/helpers/ERC20.sol';
 
 import '../interfaces/core/IBasePoolDeployer.sol';
 import '../interfaces/core/IBasePool.sol';
+import './BasePoolAuthorization.sol';
 
 import '../helpers/UpsideErrors.sol';
 
 // todo: implement IVault to main the pools
 // todo: implement AssetManager to access fee
-abstract contract BasePool is IBasePool {
+abstract contract BasePool is IBasePool, UpsidePoolToken {
     using FixedPoint for uint256;
 
     uint256 private constant _MIN_FEE_PERCENTAGE = 1e12; // 0.0001%
@@ -27,9 +28,12 @@ abstract contract BasePool is IBasePool {
 
     event PoolRegistered(bytes32 indexed poolId, address indexed owner);
 
-    constructor() {
-        (factory, feePercentage) = IBasePoolDeployer(msg.sender).parameters();
-    }
+    constructor(
+        address owner,
+        uint256 feePercentage,
+        string memory name,
+        string memory symbol
+    ) UpsidePoolToken(name, symbol) {}
 
     function registerOwner(address owner) external override returns (bytes32) {
         _require(_poolIds[owner] == bytes32(0x0), Errors.POOL_OWNER_EXIST);
@@ -50,5 +54,5 @@ abstract contract BasePool is IBasePool {
         return serialized;
     }
 
-    function setFeeProtocol(uint256 feePercentage) external override {}
+    function setFeePercentage(uint256 feePercentage) external override {}
 }
