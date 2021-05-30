@@ -6,13 +6,8 @@ export enum FeeAmount {
   HIGH = 1e14,
 }
 
-export function getCreate2Address(
-  factoryAddress: string,
-  owner: string,
-  feePercentage: number,
-  bytecode: string
-): string {
-  const constructorArgumentsEncoded = utils.defaultAbiCoder.encode(['address', 'uint256'], [owner, feePercentage])
+export function getCreate2Address(factoryAddress: string, feePercentage: number, bytecode: string): string {
+  const constructorArgumentsEncoded = utils.defaultAbiCoder.encode(['uint256'], [feePercentage])
   const create2Inputs = [
     '0xff',
     factoryAddress,

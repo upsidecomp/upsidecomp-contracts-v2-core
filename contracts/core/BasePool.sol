@@ -9,6 +9,8 @@ import '../token/helpers/ERC20.sol';
 import '../interfaces/core/IBasePoolDeployer.sol';
 import '../interfaces/core/IBasePool.sol';
 
+import '../helpers/UpsideErrors.sol';
+
 // todo: implement IVault to main the pools
 // todo: implement AssetManager to access fee
 abstract contract BasePool is IBasePool {
@@ -17,15 +19,36 @@ abstract contract BasePool is IBasePool {
     uint256 private constant _MIN_FEE_PERCENTAGE = 1e12; // 0.0001%
     uint256 private constant _MAX_FEE_PERCENTAGE = 1e17; // 10%
 
-    // IVault private immutable _vault;
-    // bytes32 private immutable _poolId;
-    // uint256 private immutable _totalTokens;
-
     address public immutable override factory;
-    address public immutable override owner;
     uint256 public override feePercentage;
 
+    mapping(bytes32 => mapping(address => uint256)) public balances;
+    mapping(address => bytes32) private _poolIds;
+
+    event PoolRegistered(bytes32 indexed poolId, address indexed owner);
+
     constructor() {
-        (factory, owner, feePercentage) = IBasePoolDeployer(msg.sender).parameters();
+        (factory, feePercentage) = IBasePoolDeployer(msg.sender).parameters();
     }
+
+    function registerOwner(address owner) external override returns (bytes32) {
+        _require(_poolIds[owner] == bytes32(0x0), Errors.POOL_OWNER_EXIST);
+
+        bytes32 poolId = _toPoodId(owner);
+
+        _poolIds[owner] = poolId;
+
+        emit PoolRegistered(poolId, owner);
+        return poolId;
+    }
+
+    function _toPoodId(address owner) internal pure returns (bytes32) {
+        bytes32 serialized;
+
+        serialized |= bytes32(keccak256(abi.encode(owner))) << (10 * 8);
+
+        return serialized;
+    }
+
+    function setFeeProtocol(uint256 feePercentage) external override {}
 }

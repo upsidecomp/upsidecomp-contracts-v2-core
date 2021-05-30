@@ -2,5 +2,10 @@
 pragma solidity >=0.5.0;
 
 import './pool/IBasePoolImmutables.sol';
+import './pool/IBasePoolOwnerActions.sol';
 
-interface IUpsideV1PoolImmutables is IBasePoolImmutables {}
+// import './pool/IBasePoolState.sol';
+
+interface IUpsideV1PoolImmutables is IBasePoolImmutables, IBasePoolOwnerActions {
+
+}

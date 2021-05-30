@@ -6,13 +6,13 @@ pragma solidity >=0.5.0;
 interface IUpsideV1Factory {
     event OwnerChanged(address indexed oldOwner, address indexed newOwner);
 
-    event PoolCreated(address indexed owner, uint256 indexed feePercentage, address pool);
+    event PoolCreated(uint256 indexed feePercentage, address pool);
 
     function owner() external view returns (address);
 
-    function getPool(address _owner) external view returns (address pool);
+    function pool() external view returns (address);
 
-    function createPool(address _owner, uint256 _feePercentage) external returns (address pool);
+    function createPool(uint256 _feePercentage) external returns (address pool);
 
     function setOwner(address _owner) external;
 }
