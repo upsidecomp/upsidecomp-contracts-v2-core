@@ -44,40 +44,35 @@ describe('UpsideV1Factory', () => {
   })
 
   it('pool bytecode size', async () => {
-    await factory.createPool(POOL_OWNER, FeeAmount.MEDIUM)
-    const poolAddress = getCreate2Address(factory.address, POOL_OWNER, FeeAmount.MEDIUM, poolBytecode)
+    await factory.createPool(FeeAmount.MEDIUM)
+    const poolAddress = getCreate2Address(factory.address, FeeAmount.MEDIUM, poolBytecode)
     expect(((await waffle.provider.getCode(poolAddress)).length - 2) / 2).to.matchSnapshot()
   })
 
-  async function createAndCheckPool(owner: string, feeAmount: FeeAmount) {
-    const create2Address = getCreate2Address(factory.address, owner, feeAmount, poolBytecode)
+  async function createAndCheckPool(feeAmount: FeeAmount) {
+    const create2Address = getCreate2Address(factory.address, feeAmount, poolBytecode)
 
-    const create = factory.createPool(owner, feeAmount)
+    const create = factory.createPool(feeAmount)
     const poolContractFactory = await ethers.getContractFactory('UpsideV1Pool')
     const pool = poolContractFactory.attach(create2Address)
 
-    await expect(create).to.emit(factory, 'PoolCreated').withArgs(POOL_OWNER, feeAmount, create2Address)
-    await expect(factory.createPool(owner, feeAmount)).to.be.reverted
-    expect(await factory.getPool(owner), 'getPool').to.eq(create2Address)
+    await expect(create).to.emit(factory, 'PoolCreated').withArgs(feeAmount, create2Address)
+    await expect(factory.createPool(feeAmount)).to.be.reverted
+    expect(await factory.pool(), 'pool').to.eq(create2Address)
     expect(await pool.factory(), 'pool factory address').to.eq(factory.address)
-    expect(await pool.owner(), 'pool owner').to.eq(POOL_OWNER)
     expect(await pool.feePercentage(), 'pool fee').to.eq(feeAmount)
   }
 
   describe('#createPool', () => {
     it('succeeds for low fee pool', async () => {
-      await createAndCheckPool(POOL_OWNER, FeeAmount.LOW)
+      await createAndCheckPool(FeeAmount.LOW)
     })
 
     it('succeeds for medium fee pool', async () => {
-      await createAndCheckPool(POOL_OWNER, FeeAmount.MEDIUM)
+      await createAndCheckPool(FeeAmount.MEDIUM)
     })
     it('succeeds for high fee pool', async () => {
-      await createAndCheckPool(POOL_OWNER, FeeAmount.HIGH)
-    })
-
-    it('fails if owner is 0', async () => {
-      await expect(factory.createPool(constants.AddressZero, FeeAmount.LOW)).to.be.reverted
+      await createAndCheckPool(FeeAmount.HIGH)
     })
 
     // todo: fix
@@ -86,7 +81,7 @@ describe('UpsideV1Factory', () => {
     // });
 
     it('gas', async () => {
-      await snapshotGasCost(factory.createPool(POOL_OWNER, FeeAmount.MEDIUM))
+      await snapshotGasCost(factory.createPool(FeeAmount.MEDIUM))
     })
   })
 

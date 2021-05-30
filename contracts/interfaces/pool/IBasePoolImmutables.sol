@@ -8,10 +8,6 @@ interface IBasePoolImmutables {
     /// @return The contract address
     function factory() external view returns (address);
 
-    /// @notice The first of the two tokens of the pool, sorted by address
-    /// @return The token contract address
-    function owner() external view returns (address);
-
     /// @notice The pool's fee in hundredths of a bip, i.e. 1e-6
     /// @return The fee
     function feePercentage() external view returns (uint256);

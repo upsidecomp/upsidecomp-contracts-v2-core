@@ -130,6 +130,8 @@ library Errors {
     uint256 internal constant ORACLE_QUERY_TOO_OLD = 314;
     uint256 internal constant ORACLE_INVALID_INDEX = 315;
     uint256 internal constant ORACLE_BAD_SECS = 316;
+    uint256 internal constant POOL_OWNER_EXIST = 317;
+    uint256 internal constant POOL_OWNER_EXIST_NOT = 318;
 
     // Lib
     uint256 internal constant REENTRANCY = 400;

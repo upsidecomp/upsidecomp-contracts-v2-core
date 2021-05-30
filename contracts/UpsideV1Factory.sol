@@ -14,7 +14,7 @@ contract UpsideV1Factory is IUpsideV1Factory, UpsideV1PoolDeployer {
     address public override owner;
 
     /// @inheritdoc IUpsideV1Factory
-    mapping(address => address) public override getPool;
+    address public override pool;
 
     constructor() {
         owner = msg.sender;
@@ -22,14 +22,10 @@ contract UpsideV1Factory is IUpsideV1Factory, UpsideV1PoolDeployer {
     }
 
     /// @inheritdoc IUpsideV1Factory
-    function createPool(address _owner, uint256 _feePercentage) external override returns (address pool) {
-        require(_owner != address(0), 'UpsideV1: ZERO_ADDRESS');
-        require(getPool[_owner] == address(0));
-
-        pool = deploy(address(this), _owner, _feePercentage);
-        getPool[_owner] = pool;
-
-        emit PoolCreated(_owner, _feePercentage, pool);
+    function createPool(uint256 _feePercentage) external override returns (address) {
+        pool = deploy(address(this), _feePercentage);
+        emit PoolCreated(_feePercentage, pool);
+        return pool;
     }
 
     /// @inheritdoc IUpsideV1Factory
