@@ -1,19 +1,27 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.0;
 
-import '../token/UpsidePoolToken.sol';
+import "../token/UpsidePoolToken.sol";
 
-import '../libraries/FixedPoint.sol';
-import '../token/helpers/ERC20.sol';
+import "../libraries/FixedPoint.sol";
+import "../token/helpers/ERC20.sol";
 
-import '../interfaces/core/IBasePoolDeployer.sol';
-import '../interfaces/core/IBasePool.sol';
+import "../interfaces/core/IBasePoolDeployer.sol";
+import "../interfaces/core/IBasePool.sol";
 
-import '../helpers/UpsideErrors.sol';
+import "../helpers/UpsideErrors.sol";
 
-// todo: implement IVault to main the pools
-// todo: implement AssetManager to access fee
-// todo: implement Authroization
+/**
+ *
+ * MVP
+ * - allow users to mint UpsidePoolToken
+ * - allow users to stake tokens
+ * - staked tokens fed into DeFi algorithm (can PoC use rDAI?)
+ *
+ * MVP 2.0
+ * - allow registering of "creators/organisation" -- as poolOwner
+ * - once staked, user can allocate staked tokens to poolOwner
+ **/
 abstract contract BasePool is IBasePool, UpsidePoolToken {
     using FixedPoint for uint256;
 
